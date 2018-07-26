@@ -1,0 +1,21 @@
+<h1 [class]="myclass">{{title}}</h1>
+
+<button (click) = "showHide()">Show/Hide</button>
+
+<p [innerHTML]='title'></p>
+<div [hidden]='flag'>
+    Div Content Visible
+</div>
+
+<p>Counter is {{counter}}</p>
+
+<input type="text" placeholder="Type Name" (input) ='takeInput($event)'>
+<hr>
+<h2>Fruits are</h2>
+
+<ul>
+  <li *ngFor= "let fruit of fruits;let i = index">
+    <i *ngIf = "fruit=='Apple'"> {{i+1}} {{fruit}} </i>
+    <b *ngIf= "fruit!='Apple'"> {{i+1}} {{fruit}}</b>
+  </li>
+</ul>
