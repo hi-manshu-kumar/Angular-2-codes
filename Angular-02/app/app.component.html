@@ -1,0 +1,34 @@
+<h1>{{title|prefix:'HCL ':' TCS'}}</h1>
+
+<button (click)="inc()" >Increase counter</button>
+
+<ul>
+  <li *ngFor ="let fruit of fruits;let i=index">
+    <span [ngClass] = "{'orange':fruit=='Orange','red':fruit=='Apple','yellow':fruit=='Banana'}">{{i+1}} {{fruit}}</span>
+  </li>
+</ul>
+
+<p [ngStyle]="{'background-color':counter>5?'red':'green'}">Counter is {{counter}}</p>
+
+<!-- ref -->
+<div *ngIf ="counter==5;then login else logout"></div>
+<ng-template #logout>
+  <div>
+    <button>logout</button>
+  </div>
+</ng-template>
+
+<ng-template #login>
+  <div>
+    <button>login</button>
+  </div>
+</ng-template>
+
+<input type="text" #firstnumber placeholder="Enter firstno here"> <br>
+<input type="text" #secondnumber placeholder="Enter secondno here"> <br>
+
+<button (click)="add(firstnumber.value,secondnumber.value)">Add</button><br>
+
+<p>Sum is {{sum|currency:'INR':true:'2.2-4'}}</p>
+
+<app-child (parentoutput)="takeValueFromChild($event)" [myvalue]="title"></app-child>
